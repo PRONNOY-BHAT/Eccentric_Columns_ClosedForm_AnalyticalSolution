@@ -1,0 +1,51 @@
+@ Copyright: Dr. Pronnoy Bhat and Dr. Vasant A. Matsagar; 
+Dr. Pronnoy Bhat, National Postdoctoral Fellow (NPDF), Dept. of Civil and Environmental Engineering, Indian Institute of Technology (IIT) Delhi;
+Dr. Vasant A. Matsagar, Professor and Departmental Head, Dept. of Civil and Environmental Engineering, Indian Institute of Technology (IIT) Delhi.
+
+
+This MATLAB Script is developed by Dr. Pronnoy Bhat, working under the mentorship of Prof. Vasant A. Matsagar; IIT Delhi.
+
+
+
+The below code is associated with the study: 
+"Closed-Form Solutions for Stress Fields and Confinement Pressure Distribution in FRP-Confined Concrete Columns under Eccentric Compression." 
+If you use this code in your work, kindly cite the afore-mentioned paper.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+%% To Generate the response from MATLAB Files, follow the procedure:
+   *START*
+	1) Download using the Link given and keep all files in the same folder.
+	2) Open and Run "gps_main", to generate the response.
+   *END*
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Nomenclature used in the MATLAB Script
+
+%   INPUT (struct par):
+%     par.E_c      - Concrete Young's modulus           [Pa]
+%     par.nu_c     - Concrete Poisson ratio             [-]
+%     par.R        - Column radius                      [m]
+%     par.t_f      - FRP thickness                      [m]
+%     par.E_f      - FRP hoop modulus                   [Pa]
+%     par.eps0     - Prescribed centroidal axial strain [-]  (< 0 in compression)
+%     par.e        = eccentricity
+%     par.kappa    - Applied section curvature M/(EI)   [1/m]                                  [Note: par.e and par.kappa are related, See Eq. (86)]
+%
+%   OUTPUT (struct sol):
+%     sol.lambda     - E_f*t_f/(E_c*R)                  [-]
+%     sol.X          - (1+nu_c)*(3-4*nu_c)              [-]
+%     sol.q0         - n=0 confinement pressure         [Pa]
+%     sol.q1_tilde   - n=1 amplitude (signed)           [Pa]
+%     sol.A          - Michell coefficient              [Pa/m]
+%     sol.eps0       - Centroidal axial strain (= par.eps0, echoed back) [-]
+%     sol.sigma_c    - Equivalent applied axial stress, back-derived    [Pa]
+%     sol.fl_ECF     - Confinement at ECF (theta = pi)  [Pa]
+%     sol.fl_tens    - Confinement at tension side (0)  [Pa]
+%     sol.eh_axisym  - Axisymmetric FRP hoop strain     [-]
+%     sol.eh_max     - Maximum FRP hoop strain (at ECF) [-]
+%
+%   Sign convention: tension-positive. eps0 < 0 means axial compression
